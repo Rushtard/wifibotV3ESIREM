@@ -1,6 +1,7 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include "connexion.h"
+#include "aide.h"
 #include <unistd.h>
 
 MainWindow::MainWindow(QWidget *parent) :
@@ -47,6 +48,7 @@ void MainWindow::update(){
     co->right = this->right;
 }
 
+/** BUTTON DIRECTIONS **/
 
 /** BUTTON DIRECTIONS **/
 // Foreward
@@ -167,6 +169,8 @@ this->right = false;
 // Exit
 void MainWindow::on_actionQuitter_triggered()
 {
+    co->Deconnexion();
+    QMessageBox::information(this, "Deconnexion","Deconnexion réussie",QMessageBox::Ok);
     exit(0);
 }
 
@@ -186,6 +190,23 @@ void MainWindow::on_buttonConnect_triggered()
         {
             QMessageBox::warning(this, "Connexion","Connexion impossible", QMessageBox::Ok);
         }
+}
+
+// Aide
+void MainWindow::on_buttonAide_triggered()
+{
+    Aide* help = new Aide(this, hp);
+    //accepted
+    if (help->exec() == 1)
+    {
+
+    }
+    // Refused
+    else{
+    }
+
+   // QMessageBox::information(this,"Aide","Aide",QMessageBox::Ok);
+
 }
 
 void MainWindow::on_actionDeconnexion_triggered()

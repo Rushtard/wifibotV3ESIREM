@@ -3,6 +3,7 @@
 
 #include <QMainWindow>
 #include "communication.h"
+#include "aide.h"
 #include <QTimer>
 #include <QKeyEvent>
 namespace Ui {
@@ -25,6 +26,7 @@ public:
     bool right;
     QTimer *timer;
     Communication* co;
+    Aide* hp;
     void keyReleaseEvent(QKeyEvent *event);
     void keyPressEvent(QKeyEvent *event);
 
@@ -49,6 +51,8 @@ private slots:
     void on_actionQuitter_triggered();
 
     void on_buttonConnect_triggered();
+
+    void on_buttonAide_triggered();
 
     void update();
 
